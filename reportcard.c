@@ -10,12 +10,12 @@ struct Student
     float percentage;
     char grade;
     int std;
-}student;
+} student;
 FILE *fptr;
 
 void gotoxy(int x, int y)
 {
-    printf("%c[%d;%df",0x1B,y,x);
+    printf("%c[%d;%df", 0x1B, y, x);
 }
 
 void input_student()
@@ -37,9 +37,18 @@ void input_student()
     scanf("%d", &student.e_marks);
     printf("\nEnter The marks in Computer Science out of 100 : ");
     scanf("%d", &student.cs_marks);
-    student.percentage = (student.p_marks + student.c_marks + student.m_marks +student.e_marks + student.cs_marks) / 5.0;
+    student.percentage = (student.p_marks + student.c_marks + student.m_marks + student.e_marks + student.cs_marks) / 5.0;
     if (student.percentage >= 80)
         student.grade = 'A';
-    else if (student.percentage>=60 && student.percentage <80)
+    else if (student.percentage >= 60 && student.percentage < 80)
         student.grade = 'B';
+    else if (student.percentage >= 45 && student.percentage < 60)
+        student.grade = 'C';
+    else if (student.percentage >=33 && student.percentage <45)
+        student.grade = 'D';
+    else
+        student.grade = 'F';
+    fwrite(&student, sizeof(student), 1,fptr);
+    fclose(fptr);
+    printf("\n\n STUDENT RECORD HAS BEEN CREATED ");
 }
