@@ -44,11 +44,11 @@ void input_student()
         student.grade = 'B';
     else if (student.percentage >= 45 && student.percentage < 60)
         student.grade = 'C';
-    else if (student.percentage >=33 && student.percentage <45)
+    else if (student.percentage >= 33 && student.percentage < 45)
         student.grade = 'D';
     else
         student.grade = 'F';
-    fwrite(&student, sizeof(student), 1,fptr);
+    fwrite(&student, sizeof(student), 1, fptr);
     fclose(fptr);
     printf("\n\n STUDENT RECORD HAS BEEN CREATED ");
 }
