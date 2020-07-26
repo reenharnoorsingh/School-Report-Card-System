@@ -52,3 +52,52 @@ void input_student()
     fclose(fptr);
     printf("\n\n STUDENT RECORD HAS BEEN CREATED ");
 }
+
+void display_all()
+{
+    printf("\n\n\n\t\t DISPLAY ALL RECORD !!\n\n");
+    fptr = fopen("student.dat", "rb");
+    while ((fread(&student, sizeof(student), 1, fptr)) > 0)
+    {
+        printf("\nRoll Number of Student : %d", student.rollno);
+        printf("\nName of student : %s", student.name);
+        printf("\nMarks in Physics : %d", student.p_marks);
+        printf("\nMarks in Chemistry : %d", student.c_marks);
+        printf("\nMarks in Maths : %d", student.m_marks);
+        printf("\nMarks in English : %d", student.e_marks);
+        printf("\nMarks in Computer Science : %d", student.cs_marks);
+        printf("\nPercentage of student is  : %.2f", student.percentage);
+        printf("\nGrade of student is : %c", student.grade);
+        printf("\n\n====================================\n");
+    }
+    fclose(fptr);
+}
+void display_sp(int n)
+{
+    int flag =0;
+    fptr = fopen("student.dat","rb");
+    while ((freaad(&student,sizeof(student),1,fptr))>0)
+    {
+        if(student.rollno == n)
+        {
+            printf("\nRoll number of student : %d", student.rollno);
+            printf("\nName of Student : %s", student.name);
+            printf("\nMarks in Physics : %d", student.p_marks);
+            printf("\nMarks in Chemistry : %d", student.c_marks);
+            printf("\nMarks in Maths : %d", student.m_marks);
+            printf("\nMarks in English : %d", student.e_marks);
+            printf("\nMarks in Computer Science : %d", student.cs_marks);
+            printf("\nPercentage of student is  : %.2f", student.percentage);
+            printf("\nGrade of student is : %c", student.grade);
+            flag = 1;
+        }
+    }
+    fclose(fptr);
+    if (flag ==0)\
+        printf("\n\nRecord does not exist");
+}
+
+void modify_student()
+{
+    int no,found =0;
+}
