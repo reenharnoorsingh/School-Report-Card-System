@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <process.h>
 
-struct Student
+struct Student // structure made to represent a student
 {
     int rollno;
     char name[100];
@@ -13,12 +13,12 @@ struct Student
 } student;
 FILE *fptr;
 
-void gotoxy(int x, int y)
+void gotoxy(int x, int y) // gotoxy function places cursor at a desired location on screen
 {
     printf("%c[%d;%df", 0x1B, y, x);
 }
 
-void input_student()
+void input_student() //function allows to input student info
 {
     fptr = fopen("student.dat", "ab");
     printf("\nPlease Enter The New Details of student \n");
@@ -53,7 +53,7 @@ void input_student()
     printf("\n\n STUDENT RECORD HAS BEEN CREATED ");
 }
 
-void display_all()
+void display_all() //displays the student record
 {
     printf("\n\n\n\t\t DISPLAY ALL RECORD !!\n\n");
     fptr = fopen("student.dat", "rb");
@@ -97,7 +97,7 @@ void display_sp(int n)
         printf("\n\nRecord does not exist");
 }
 
-void modify_student()
+void modify_student() //function allows to modify student records 
 {
     int no, found = 0;
     printf("\n\n\tTo Modify ");
@@ -154,7 +154,7 @@ void modify_student()
         printf("\n\n Record does not exist ");
 }
 
-void delete_student()
+void delete_student() //function allows to delete student record
 {
     int no;
     FILE *fptr2;
@@ -180,7 +180,7 @@ void delete_student()
     printf("\n\n\tRecord Deleted ..");
 }
 
-void class_result()
+void class_result() // displays the result of the whole class
 {
     fptr = fopen("student.dat", "rb");
     if (fptr == NULL)
@@ -203,7 +203,7 @@ void class_result()
     fclose(fptr);
 }
 
-void result()
+void result() // displays result menu
 {
     int ans, rno;
     char ch;
@@ -238,7 +238,7 @@ void result()
     }
 }
 
-void intro()
+void intro()//First Screen of the Program
 {
     
     gotoxy(35, 11);
