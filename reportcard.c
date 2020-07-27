@@ -192,13 +192,13 @@ void class_result()
     }
 
     printf("\n\n\t\tALL STUDENTS RESULT \n\n");
-    printf("====================================================\n");
-    printf("R.No.  Name       P   C   M   E   CS  Percentage   Grade\n");
-    printf("====================================================\n");
+    printf("=====================================================================================\n");
+    printf("R.No.  Name       \tP   \tC   \tM  \tE   \tCS  \tPercentage   \tGrade\n");
+    printf("======================================================================================\n");
 
     while ((fread(&student, sizeof(student), 1, fptr)) > 0)
     {
-        printf("%-6d %-10s %-3d %-3d %-3d %-3d %-3d %-3.2f  %-1c\n", student.rollno, student.name, student.p_marks, student.c_marks, student.m_marks, student.e_marks, student.cs_marks, student.percentage, student.grade);
+        printf("%-6d %-10s \t%-3d \t%-3d \t%-3d \t%-3d \t%-3d \t%-3.2f  \t\t%-1c\n", student.rollno, student.name, student.p_marks, student.c_marks, student.m_marks, student.e_marks, student.cs_marks, student.percentage, student.grade);
     }
     fclose(fptr);
 }
